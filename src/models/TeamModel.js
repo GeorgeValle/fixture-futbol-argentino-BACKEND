@@ -5,6 +5,10 @@ const teamSchema = new Schema({
         type:String,
         required:true
     },
+    shield:{
+        type:String,
+        default:""
+    },
     points:{
         type:Number,
         default:0
