@@ -1,4 +1,4 @@
-import {TeamService} from '../services/TeamService.js';
+import teamService from '../services/TeamService.js';
 // import {logInfo, errorLogger} from '../utils/Logger.js'
 
 //create a new team class
@@ -12,6 +12,16 @@ class Team{
 
         }
     }
+
+    // obtain all stats of one team
+    async getOneTeam(req,res){
+        try{
+
+        }catch(err){
+
+        }
+    }
+
     //update stats
     async updateTeam(req,res){
         try{
@@ -28,14 +38,7 @@ class Team{
 
         }
     }
-    // obtain all stats of one team
-    async getOneTeam(req,res){
-        try{
-
-        }catch(err){
-
-        }
-    }
+    
     //update one team goals
     async updateOneTeamGoals(req,res){
         try{
@@ -52,7 +55,25 @@ class Team{
 
         }
     }
-    //reset all goals
+
+    //update one team wins
+    async updateOneTeamWins(req,res){
+        try{
+
+        }catch(err){
+
+        }
+    }
+    //update one team losses
+    async updateOneTeamLosses(req,res){
+        try{
+
+        }catch(err){
+
+        }
+    }
+
+    //reset stats of all teams
     async resetAllStandings(req,res){
         try{
 
@@ -70,22 +91,7 @@ class Team{
 
         }
     }
-    //update one team wins
-    async updateOneTeamWins(req,res){
-        try{
-
-        }catch(err){
-
-        }
-    }
-    //update one team losses
-    async updateOneTeamLosses(req,res){
-        try{
-
-        }catch(err){
-
-        }
-    }
+    
 
 
 }
