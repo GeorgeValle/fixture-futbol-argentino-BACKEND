@@ -8,6 +8,9 @@ import express from 'express';
 //import of passport
 import passport from 'passport';
 
+//import routes
+import {teamRouter} from './routes/TeamRouter.js'
+
 
 
 const PORT = parseInt(process.argv[2]) || process.env.PORT ||8080
@@ -44,6 +47,9 @@ if (modoCluster && cluster.isPrimary) {
     //middleware of json
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
+
+    //routes
+    app.use('/teams',teamRouter);
 
 
     //message for inexistent routes

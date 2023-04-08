@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import mongoose, {mongo} from 'mongoose';
 
-const uri= process.env.DB_ATLAS
+const uri= process.env.MONGO_URI
 const ear= mongoose.connection;
 
 mongoose.connect(uri,
