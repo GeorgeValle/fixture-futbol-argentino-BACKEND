@@ -1,14 +1,14 @@
 
 import {MongoDAO} from './MongoDAO.js';
-import TeamModel from '../models/TeamModel.js';
+import MatchModel from '../models/MatchModel.js';
 // import {logInfo, errorLogger} from '../utils/Logger.js'
 
 //create the new class Team
-class Team extends MongoDAO{  //extends Connection
+class Match extends MongoDAO{ //extends Connection
     constructor(){
-        super(TeamModel)
+        super(MatchModel)
     }
 
 }
 
-export default new Team
+export default new Match
