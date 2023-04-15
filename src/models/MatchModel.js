@@ -13,6 +13,10 @@ const matchSchema = new Schema({
         type:String,
         default:"visitor"
     },
+    name:{
+        type:String,
+        default:local+" vs "+visitor
+    },
     gv:{
         type:Number,
         default:0
