@@ -47,6 +47,16 @@ class Team{
 
         }
     }
+
+    //increment one team goals
+    async incrementOneTeamGoals(req,res){
+        try{
+
+        }catch(err){
+
+        }
+    }    
+
     //get one team goals
     async getOneTeamGoals(req,res){
         try{
@@ -64,8 +74,45 @@ class Team{
 
         }
     }
+
+    //increment one team wins
+    async incrementOneTeamWins(req,res){
+        try{
+
+        }catch(err){
+
+        }
+    }
+
     //update one team losses
     async updateOneTeamLosses(req,res){
+        try{
+
+        }catch(err){
+
+        }
+    }
+
+    //increment one team losses
+    async incrementOneTeamLosses(req,res){
+        try{
+
+        }catch(err){
+
+        }
+    }
+
+    //update one team Points
+    async updateOneTeamPoints(req,res){
+        try{
+
+        }catch(err){
+
+        }
+    }
+
+    //increment one team Points
+    async incrementOneTeamPoints(req,res){
         try{
 
         }catch(err){
