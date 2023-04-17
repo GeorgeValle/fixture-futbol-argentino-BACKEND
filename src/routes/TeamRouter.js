@@ -17,10 +17,10 @@ routes.post('/new', team.createTeam)
 routes.get('/:id_team', team.getOneTeam)
 
 //update a team instance
-routes.put('/:id_team', team.updateTeam)
+routes.put('/:id_team', team.updateOneTeam)
 
 //delete a team instance
-routes.delete('/:id_team', team.deleteTeam)
+routes.delete('/:id_team', team.deleteOneTeam)
 
 
 //update score of goals of one team
