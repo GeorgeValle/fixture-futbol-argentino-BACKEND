@@ -13,7 +13,7 @@ class Team{
         }
     }
 
-    // obtain all stats of one team
+    // obtain all stats of one team (by id or by field)
     async getOneTeam(req,res){
         try{
 
@@ -23,7 +23,7 @@ class Team{
     }
 
     //update stats
-    async updateTeam(req,res){
+    async updateOneTeam(req,res){
         try{
 
         }catch(err){
@@ -31,7 +31,7 @@ class Team{
         }
     }
     //delete a team
-    async deleteTeam(req,res){
+    async deleteOneTeam(req,res){
         try{
 
         }catch(err){
@@ -60,6 +60,8 @@ class Team{
     //get one team goals
     async getOneTeamGoals(req,res){
         try{
+            //TODO: get one team whir: getTeamById or getTeamByField 
+            //and later return team.goals
 
         }catch(err){
 
@@ -133,7 +135,7 @@ class Team{
     //get stats for all teams
     async getStandings(req,res){
         try{
-            
+            //TO DO: use method getAllTeams 
         }catch(err){
 
         }

@@ -41,9 +41,17 @@ class MongoDAO{
         } 
     }
 
+    findByFieldDA0 = async field =>{
+        try{
+            let objDAO = await this.collection.find(field)
+            return objDAO
+        }catch(err) {
+
+        }
+    }
+
     updateByIdDAO = async (obj,id) =>{
         try {
-            //let idInt = parseInt(idBack);
             let objDAO = await this.collection.findByIdAndUpdate(id, obj);
             return objDAO   
             
@@ -51,6 +59,7 @@ class MongoDAO{
             console.log(err.message);
         }  
     }
+    
 
     deleteByIdDAO = async (id)=>{
         try {
