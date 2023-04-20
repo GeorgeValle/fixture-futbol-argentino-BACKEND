@@ -1,5 +1,6 @@
-import teamService from '../services/TeamService.js';
-// import {logInfo, errorLogger} from '../utils/Logger.js'
+import team from '../services/TeamService.js';
+import {logInfo, errorLogger} from '../utils/Logger.js'
+import {createTeamValidation} from '../utils/Validations.js'
 
 //create a new team class
 class Team{
@@ -7,9 +8,14 @@ class Team{
     //create a new team
     async createTeam(req,res){
         try{
-
+            //validate field name of an team
+            createTeamValidation(req.body)
+            const newTeam = await team.SaveTeam(req.body)
+            logInfo.info(`Team created: ${req.body.name}  route /team/new`)
+            return res.status(200).json({message:"create created", data:newTeam})
         }catch(err){
-
+            errorLogger.error(`error in create a new team: ${err}`)
+            return res.status(400).json({message: err, route: "team/new", zone: "create new teams"})
         }
     }
 
