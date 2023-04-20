@@ -52,7 +52,7 @@ class MongoDAO{
 
     updateByIdDAO = async (obj,id) =>{
         try {
-            let objDAO = await this.collection.findByIdAndUpdate(id, obj);
+            let objDAO = await this.collection.findByIdAndUpdate(id, obj,{new:true});
             return objDAO   
             
         } catch (err) {
