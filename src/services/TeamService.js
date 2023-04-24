@@ -29,6 +29,9 @@ class TeamService{
     getAllTeams= async()=>{
         return await getAllDAO()
     }
+    resetAllTeams= async(fieldsUpdated)=>{
+        return await resetAllDAO(fieldsUpdated)
+    }
     
 
 

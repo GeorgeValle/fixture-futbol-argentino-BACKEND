@@ -130,12 +130,24 @@ incrementOneField = async (field, fieldUpdate) => {
 incrementOneFieldById = async (id, fieldUpdate) => {
     try{
 
-        await Link.findByIdAndUpdate(
+        await this.collection.findByIdAndUpdate(
             id,
             // example: fieldUpdate ={ goals: { $inc: 1 } }
             fieldUpdate,
             //{new: true}
             );
+    }catch(err){
+
+    }
+}
+
+resetAllDAO = async (fieldsUpdated) => {
+    try{
+        // example: fieldUpdate ={ goals: 0,wins:0,points:0}
+        const reset = await this.collection.updateMany({}, { fieldsUpdated })
+        //obtain the count of documents modified
+        return reset.modifiedCount
+            
     }catch(err){
 
     }
