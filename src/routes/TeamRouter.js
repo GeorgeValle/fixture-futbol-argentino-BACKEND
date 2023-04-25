@@ -45,12 +45,34 @@ routes.patch('/ud_losses/:id_team/:losses', team.updateOneTeamLosses)
 routes.patch('/losses/:id_team/:losses', team.incrementOneTeamLosses)
 
 //update one team points
-routes.patch('/ud_points/:id_team/points', team.updateOneTeamPoints)
+routes.patch('/ud_points/:id_team/:points', team.updateOneTeamPoints)
 
 //increment one team points
 routes.patch('/points/:id_team/:points', team.incrementOneTeamPoints)
 
+//update one team games Played
+routes.patch('/ud_games_played/:id_team/:games_played', team.updateOneTeamGamesPlayed)
 
+//increment one team games Played
+routes.patch('/games_played/:id_team/:games_played', team.incrementOneTeamGamesPlayed)
+
+//update one team draws
+routes.patch('/ud_draws/:id_team/:draws', team.updateOneTeamDraws)
+
+//increment one team draws
+routes.patch('/draws/:id_team/:draws', team.incrementOneTeamDraws)
+
+//update one goals Allowed
+routes.patch('/ud_goals_allowed/:id_team/:goals_allowed', team.updateOneTeamGoalsAllowed)
+
+//increment one goals Allowed
+routes.patch('/goals_allowed/:id_team/:goals_allowed', team.incrementOneTeamGoalsAllowed)
+
+//update one goals difference
+routes.patch('/ud_goals_difference/:id_team/:goals_difference', team.updateOneTeamGoalsAllowed)
+
+//increment one goals difference
+routes.patch('/goals_difference/:id_team/:goals_difference', team.incrementOneTeamGoalsDifference)
 
 //reset stats of all teams
 routes.patch('/resetAll', team.resetAllStandings)
