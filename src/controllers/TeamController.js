@@ -71,7 +71,7 @@ class Team{
             if (!goals) return res.status(400).json( {message: "Goals required"});
             const updatedTeam = await teamService.updateTeamById(id_team,{goals:goals})
             logInfo.info(`updated Team goals:  route team/ud_goals/:id_team/:goals `)
-            return res.status(200).json({message: "Team added: ", updatedTeam})
+            return res.status(200).json({message: "Team added: ",data: updatedTeam})
         }catch(err){
             return res.status(404).json({ message: 'Failed to update goals team'})
         }
@@ -84,8 +84,9 @@ class Team{
             if (!id_team) return res.status(400).json( {message: "Id required"});
             const {goals} = req.params
             if (!goals) return res.status(400).json( {message: "Goals required"});
-            const incrementTeam = await teamService.incrementById(id_team,{goals:{ $inc: goals }})
+            const incrementTeamGoals = await teamService.incrementById(id_team,{goals:{ $inc: goals }})
             logInfo.info(`Increment Goals Team:  route /team/goals/id_team/:goals`)
+            return res.status(200).json({message: "Team wins updated: ",data: incrementTeamGoals})
         }catch(err){
             return res.status(404).json({ message: 'Failed to increment goals team'})
         }
@@ -114,7 +115,7 @@ class Team{
             if (!wins) return res.status(400).json( {message: "wins required"});
             const updatedTeamWins = await teamService.updateTeamById(id_team,{wins:wins})
             logInfo.info(`updated Team wins:  route /ud_wins/id_team`)
-            return res.status(200).json({message: "Team wins updated: ", updatedTeamWins})
+            return res.status(200).json({message: "Team wins updated: ",data: updatedTeamWins})
         }catch(err){
             return res.status(404).json({ message: 'Failed to update team wins'})
         }
@@ -129,7 +130,7 @@ class Team{
             if (!wins) return res.status(400).json( {message: "wins required"});
             const incrementTeamWins = await teamService.incrementById(id_team,{wins:{ $inc: wins }})
             logInfo.info(`Increment Wins Team:  route /team/wins/:id_team/:wins`)
-            return res.status(200).json({message: "Team wins updated: ", incrementTeamWins})
+            return res.status(200).json({message: "Team wins updated: ",data: incrementTeamWins})
 
         }catch(err){
             return res.status(404).json({ message: 'Failed to increment wins team'})
@@ -145,7 +146,7 @@ class Team{
             if (!losses) return res.status(400).json( {message: "losses required"});
             const updatedTeamLosses = await teamService.updateTeamById(id_team,{losses:losses})
             logInfo.info(`updated Team Losses:  route team/ud_losses/:id_team/:losses`)
-            return res.status(200).json({message: "Team losses updated: ", updatedTeamLosses})
+            return res.status(200).json({message: "Team losses updated: ",data: updatedTeamLosses})
         }catch(err){
             return res.status(404).json({ message: 'Failed to update team losses'})
         }
@@ -160,7 +161,7 @@ class Team{
             if (!losses) return res.status(400).json( {message: "losses required"});
             const incrementTeamLosses = await teamService.incrementById(id_team,{losses:{ $inc: losses }})
             logInfo.info(`Increment Losses Team:  route /team/losses/:id_team/:losses`)
-            return res.status(200).json({message: "Team losses updated: ", incrementTeamLosses})
+            return res.status(200).json({message: "Team losses updated: ",data: incrementTeamLosses})
 
         }catch(err){
             return res.status(404).json({ message: 'Failed to increment losses team'})
@@ -176,7 +177,7 @@ class Team{
             if (!points) return res.status(400).json( {message: "points required"});
             const updatedTeamPoints = await teamService.updateTeamById(id_team,{points:points})
             logInfo.info(`updated Team points:  route team/ud_points/:id_team/:points`)
-            return res.status(200).json({message: "Team points updated: ", updatedTeamPoints})
+            return res.status(200).json({message: "Team points updated: ",data: updatedTeamPoints})
         }catch(err){
             return res.status(404).json({ message: 'Failed to update team points'})
         }
@@ -191,10 +192,134 @@ class Team{
             if (!points) return res.status(400).json( {message: "points required"});
             const incrementTeamPoints = await teamService.incrementById(id_team,{points:{ $inc: points }})
             logInfo.info(`Increment Points Team:  route /team/points/:id_team/:points`)
-            return res.status(200).json({message: "Team points updated: ", incrementTeamPoints})
+            return res.status(200).json({message: "Team points updated: ",data: incrementTeamPoints})
 
         }catch(err){
             return res.status(404).json({ message: 'Failed to increment points team'})
+        }
+    }
+
+    //update one team games Played
+    async updateOneTeamGamesPlayed(req,res){
+        try{
+            const { id_team } = req.params
+            if (!id_team) return res.status(400).json( {message: "Id required"});
+            const {games_played} = req.params
+            if (!games_played) return res.status(400).json( {message: "games played required"});
+            const updatedTeamGamesPlayed = await teamService.updateTeamById(id_team,{gamesPlayed:games_played})
+            logInfo.info(`updated Team games Played:  route team/ud_games_played/:id_team/:games_played`)
+            return res.status(200).json({message: "Team games Played updated: ",data: updatedTeamGamesPlayed})
+        }catch(err){
+            return res.status(404).json({ message: 'Failed to update team games Played'})
+        }
+    }
+
+    //increment one team gamesPlayed
+    async incrementOneTeamGamesPlayed(req,res){
+        try{
+            const { id_team } = req.params
+            if (!id_team) return res.status(400).json( {message: "Id required"});
+            const {games_played} = req.params
+            if (!games_played) return res.status(400).json( {message: "points required"});
+            const incrementTeamGamesPlayed = await teamService.incrementById(id_team,{gamesPlayed:{ $inc: games_played }})
+            logInfo.info(`Increment team games played:  route /team/games_played/:id_team/:games_played`)
+            return res.status(200).json({message: "Team games played updated: ",data: incrementTeamGamesPlayed})
+
+        }catch(err){
+            return res.status(404).json({ message: 'Failed to increment games played team'})
+        }
+    }
+
+    //update one team games draws
+    async updateOneTeamDraws(req,res){
+        try{
+            const { id_team } = req.params
+            if (!id_team) return res.status(400).json( {message: "id_team required"});
+            const {draws} = req.params
+            if (!draws) return res.status(400).json( {message: "draws required"});
+            const updatedTeamDraws = await teamService.updateTeamById(id_team,{draws:draws})
+            logInfo.info(`updated Team points:  route team/ud_draws/:id_team/:draws`)
+            return res.status(200).json({message: "Team draws updated: ",data: updatedTeamDraws})
+        }catch(err){
+            return res.status(404).json({ message: 'Failed to update team draws'})
+        }
+    }
+
+    //increment one team games draws
+    async incrementOneTeamDraws(req,res){
+        try{
+            const { id_team } = req.params
+            if (!id_team) return res.status(400).json( {message: "Id required"});
+            const {draws} = req.params
+            if (!draws) return res.status(400).json( {message: "draws required"});
+            const incrementTeamDraws = await teamService.incrementById(id_team,{draws:{ $inc: draws }})
+            logInfo.info(`Increment Points Team:  route /team/draws/:id_team/:draws`)
+            return res.status(200).json({message: "Team draws updated: ",data: incrementTeamDraws})
+
+        }catch(err){
+            return res.status(404).json({ message: 'Failed to increment draws team'})
+        }
+    }
+        //todo
+    //update one team goals Allowed
+    async updateOneTeamGoalsAllowed(req,res){
+        try{
+            const { id_team } = req.params
+            if (!id_team) return res.status(400).json( {message: "Id required"});
+            const {goals_allowed} = req.params
+            if (!goals_allowed) return res.status(400).json( {message: "goals Allowed required"});
+            const updatedTeamGoalsAllowed = await teamService.updateTeamById(id_team,{goalsAllowed:goals_allowed})
+            logInfo.info(`updated Team goals Allowed:  route team/ud_goals_allowed/:id_team/:goals_allowed`)
+            return res.status(200).json({message: "Team goals Allowed updated: ",data: updatedTeamGoalsAllowed})
+        }catch(err){
+            return res.status(404).json({ message: 'Failed to update team goals Allowed'})
+        }
+    }
+
+    //increment one team goalsAllowed
+    async incrementOneTeamGoalsAllowed(req,res){
+        try{
+            const { id_team } = req.params
+            if (!id_team) return res.status(400).json( {message: "Id required"});
+            const {goals_allowed} = req.params
+            if (!goals_allowed) return res.status(400).json( {message: "goalsAllowed required"});
+            const incrementTeamGoalsAllowed = await teamService.incrementById(id_team,{goalsAllowed:{ $inc: goals_allowed }})
+            logInfo.info(`Increment goals Allowed Team:  route /team/goals_allowed/:id_team/:goals_allowed`)
+            return res.status(200).json({message: "Team goalsAllowed updated: ",data: incrementTeamGoalsAllowed})
+
+        }catch(err){
+            return res.status(404).json({ message: 'Failed to increment goals allowed team'})
+        }
+    }
+
+    //update one team goal Difference
+    async updateOneTeamGoalDifference(req,res){
+        try{
+            const { id_team } = req.params
+            if (!id_team) return res.status(400).json( {message: "Id required"});
+            const {goal_difference} = req.params
+            if (!goal_difference) return res.status(400).json( {message: "goalDifference required"});
+            const updatedTeamGoalDifference = await teamService.updateTeamById(id_team,{goalDifference:goal_difference})
+            logInfo.info(`updated Team goal difference:  route team/ud_goal_difference/:id_team/:goal_difference`)
+            return res.status(200).json({message: "Team goal difference updated: ",data: updatedTeamGoalDifference})
+        }catch(err){
+            return res.status(404).json({ message: 'Failed to update team goal difference'})
+        }
+    }
+
+    //increment one team goal Difference
+    async incrementOneTeamGoalsDifference(req,res){
+        try{
+            const { id_team } = req.params
+            if (!id_team) return res.status(400).json( {message: "Id required"});
+            const {goal_difference} = req.params
+            if (!goal_difference) return res.status(400).json( {message: "goal_Difference required"});
+            const incrementTeamGoalDifference = await teamService.incrementById(id_team,{goalDifference:{ $inc: goal_difference }})
+            logInfo.info(`Increment goal Difference Team:  route /team/goal_Difference/:id_team/:goal_difference`)
+            return res.status(200).json({message: "Team goal difference updated: ",data: incrementTeamGoalDifference})
+
+        }catch(err){
+            return res.status(404).json({ message: 'Failed to increment goal difference team'})
         }
     }
 
@@ -202,9 +327,9 @@ class Team{
     async resetAllStandings(req,res){
         try{
             
-            fieldsToReset ={goals:0,wins:0,points:0,gamesPlayed:0,draws:0,goalsAllowed:0,GoalDifference:0}
+            fieldsToReset ={goals:0,wins:0,points:0,gamesPlayed:0,draws:0,goalsAllowed:0,goalDifference:0}
             countModified = await teamService.resetAllTeams(fieldsToReset)
-            return res.status(200).json({message: "Number of reset teams: ", countModified})
+            return res.status(200).json({message: "Number of reset teams: ",data: countModified})
         }catch(err){
             return res.status(404).json({ message: `Failed to reset all teams, error: ${err}`})
         }
