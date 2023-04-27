@@ -2,7 +2,7 @@ import team from '../daos/TeamDAO.js';
 
 class TeamService{
 
-    SaveTeam= async(teamData)=>{
+    saveTeam= async(teamData)=>{
         return await team.saveDataDAO(teamData)
     }
     getTeamById= async(id_team)=>{

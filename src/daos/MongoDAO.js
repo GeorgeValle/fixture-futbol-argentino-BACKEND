@@ -9,7 +9,7 @@ class MongoDAO{
         this.collection= options
     }
 
-    SaveDataDAO = async obj =>{
+    saveDataDAO = async obj =>{
         try{
             let objDAO = await this.collection.create(obj);
             return objDAO
