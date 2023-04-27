@@ -10,9 +10,9 @@ class Team{
         try{
             //validate field name of an team
             createTeamValidation(req.body)
-            const newTeam = await teamService.SaveTeam(req.body)
+            const newTeam = await teamService.saveTeam(req.body)
             logInfo.info(`Team created: ${req.body.name}  route /team/new`)
-            return res.status(200).json({message:"create created", data:newTeam})
+            return res.status(200).json({message:`team ${req.body.name} create`, data:newTeam})
         }catch(err){
             errorLogger.error(`error in create a new team: ${err}`)
             return res.status(400).json({message: err, route: "team/new", zone: "create new team"})
