@@ -38,7 +38,7 @@ const teamSchema = new Schema({
         type:Number,
         default:0
     },
-    GoalDifference:{
+    goalDifference:{
         type:Number,
         default:0
     }
