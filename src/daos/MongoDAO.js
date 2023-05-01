@@ -99,7 +99,7 @@ updateOneFieldById = async (id, fieldUpdate,)=>{
     }
 }
 
-updateOneField = async (field, fieldUpdate,)=>{
+updateByFieldDAO = async (field, fieldUpdate,)=>{
     try{
 
         const res = await this.collection.findOneAndUpdate(field, fieldUpdate, {
@@ -114,7 +114,7 @@ updateOneField = async (field, fieldUpdate,)=>{
 
 }
 
-incrementOneField = async (field, fieldUpdate) => {
+incrementOneFieldDAO = async (field, fieldUpdate) => {
     try{
         await this.collection.findOneAndUpdate( field, 
             //{'field' : dataFieldUpdate}
